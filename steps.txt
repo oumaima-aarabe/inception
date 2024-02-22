@@ -1,0 +1,3 @@
+build docker images mariadb / nginx /wordpress
+configuration of each
+link to docker compose
