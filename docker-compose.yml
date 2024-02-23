@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  nginx:
+    build: nginx/
+    image: khrizt:bota
+    container_name: khrizti
+    ports:
+      - "443:443"
+    depends_on:
+      - wordpress
+    volumes:
+      - wp
+    networks:
+      - inception
+    env_file:
+      - .env
+    restart: on-failure
+
+
+volumes:
+  wp:
+    name: wordpress_vol
+    driver: local
+    driver_opts:
+      device: /tmp/wordpress
+      type: none
+      o: bind
+
+networks:
+  inception:
+    name: inception
+

@@ -1,3 +1,4 @@
-build docker images mariadb / nginx /wordpress
-configuration of each
-link to docker compose
+docker default networks , and network types 
+
+what are volumes / volumes types.
+
