@@ -2,13 +2,13 @@ version: '3.7'
 
 services:
   nginx:
-    build: nginx/
+    build: requirements/srcs/nginx/
     image: nginx:ouaarabe
     container_name: nginx
     ports:
       - "443:443"
-    depends_on:
-      - wordpress
+    # depends_on:
+    #   - wordpress
     volumes:
       - wp_vol:/var/www/html
     networks:
@@ -19,15 +19,14 @@ services:
 
   mariadb:
     build:
-      context: requirements/mariadb/
+      context: requirements/srcs/mariadb/
       args:
         SQL_USER: ${SQL_USER}
         SQL_PASSWORD: ${SQL_PASSWORD}
         MYSQL_DATABASE: ${MYSQL_DATABASE}
     image: mariadb:ouaarabe
     container_name: mariadb
-    ports:
-      - "3306:3306"
+ 
     env_file:
       - .env
     volumes:
@@ -45,12 +44,13 @@ volumes:
       device: /tmp/wordpress
       type: none
       o: bind
-    maradb_vol:
-      name: mariadb_vol
-      driver_opts:
-        device: /tmp/mariadb
-        o: bind
-        type: none
+  mariadb_vol:
+    name: mariadb_vol
+    driver: local
+    driver_opts:
+      device: /tmp/mariadb
+      o: bind
+      type: none
 
 networks:
   inception:

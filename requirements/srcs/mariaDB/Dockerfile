@@ -17,7 +17,7 @@ ENV SQL_USER=$SQL_USER
 ARG MYSQL_DATABASE
 ENV MYSQL_DATABASE=$MYSQL_DATABASE
 
-COPY tools/config.sh /usr/local/bin/config.sh
+COPY script.sh /usr/local/bin/config.sh
 RUN chmod +x /usr/local/bin/config.sh
 RUN config.sh
 
