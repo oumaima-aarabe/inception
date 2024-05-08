@@ -1,6 +1,6 @@
 up:
 	@mkdir -p /tmp/wordpress
-	# @mkdir -p /tmp/mariadb
+	@mkdir -p /tmp/mariadb
 	docker compose -f ./srcs/docker-compose.yml up --build 
 
 down:
