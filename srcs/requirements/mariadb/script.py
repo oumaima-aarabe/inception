@@ -7,7 +7,7 @@ import time
 
 # Start the MariaDB service
 subprocess.run(["service", "mariadb", "start"])
-time.sleep(10)
+time.sleep(5)
 
 # # Secure the installation
 
@@ -33,7 +33,7 @@ flush_privileges_cmd = "FLUSH PRIVILEGES;"
 
 # execute SQL commands with the option to excute sql statement provided and then exit 
 for cmd in [create_db_cmd, create_user_cmd, grant_privileges_cmd, flush_privileges_cmd]:
-    subprocess.run(["mysql",  "-u", "root", "-p" + os.environ.get('MYSQL_ROOT_PASSWORD'), "-e", cmd])
+    subprocess.run(["mysql",  "-u", "root", "-p" + os.environ.get('MYSQL_PASSWORD'), "-e", cmd])
 
-subprocess.run(["mysqladmin", "shutdown", "-u", "root", "-p" + os.environ.get('MYSQL_ROOT_PASSWORD')])
+subprocess.run(["mysqladmin", "shutdown", "-u", "root", "-p" + os.environ.get('MYSQL_PASSWORD')])
 subprocess.run(["mariadbd"])

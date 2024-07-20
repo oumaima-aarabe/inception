@@ -11,3 +11,5 @@ re: down
 	docker compose -f ./srcs/docker-compose.yml down -v
 	sudo rm -rf /home/ouaarab/data/*
 	$(MAKE) up
+
+#docker exec mariadb bash   
