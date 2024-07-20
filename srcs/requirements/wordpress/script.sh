@@ -11,9 +11,9 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
     echo "Creating wp-config.php"
     wp core download --path=/var/www/html --allow-root
     wp config create	--allow-root \
-        --dbname=$MYSQL_DATABASE \
-        --dbuser=$SQL_USER \
-        --dbpass=$SQL_PASSWORD \
+        --dbname=$MYSQL_DATABASE_NAME \
+        --dbuser=$MYSQL_USER \
+        --dbpass=$MYSQL_PASSWORD \
         --dbhost=mariadb:3306 --path='/var/www/html'
 
     wp core install --url=$WP_URL --title=Inception --path='/var/www/html' --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASSWORD --admin_email=$WP_ADMIN_MAIL --allow-root

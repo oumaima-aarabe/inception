@@ -1,13 +1,13 @@
 up:
-	@mkdir -p /tmp/wordpress
-	@mkdir -p /tmp/mariadb
+	@mkdir -p /home/ouaarab/data/wordpress
+	@mkdir -p /home/ouaarab/data/mariadb
 	docker compose -f ./srcs/docker-compose.yml up --build 
 
 down:
-	docker compose -f ./srcs/docker-compose.yml down --rmi all 
+	docker compose -f ./srcs/docker-compose.yml down --rmi all  --volumes
+	docker system prune -af
 
 re: down
 	docker compose -f ./srcs/docker-compose.yml down -v
-	rm -rf /tmp/mariadb/*
-	rm -rf /tmp/wordpress/*
+	sudo rm -rf /home/ouaarab/data/*
 	$(MAKE) up
