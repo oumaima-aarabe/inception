@@ -35,6 +35,8 @@ subprocess.run(['wp', 'core', 'install', '--url=' + os.getenv('WP_URL'), '--titl
                 '--admin_email=' + os.getenv('WP_ADMIN_MAIL'), '--path=/var/www/html', '--allow-root'])
 subprocess.run(['wp', 'user', 'create', os.getenv('WP_USER'), os.getenv('WP_USER_MAIL'),
                 '--user_pass=' + os.getenv('WP_USER_PSWD'), '--path=/var/www/html', '--allow-root'])
+#plugins redis
+subprocess.run(['wp', 'plugin', 'install', 'redis-cache', '--activate', '--path=/var/www/html', '--allow-root'])
 
 # Set ownership of WordPress directory
 subprocess.run(['chown', '-R', 'www-data:www-data', '/var/www/html'])
