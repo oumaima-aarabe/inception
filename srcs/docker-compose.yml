@@ -67,7 +67,15 @@ services:
     networks:
       - inception
     restart: on-failure
-
+  static_web:
+    build: requirements/bonus/static_web/
+    image: static_web:ouaarabe
+    container_name: static_web
+    ports:
+      - "8080:8080"
+    networks:
+      - inception
+    restart: on-failure
 
 volumes:
   wordpress_vol:

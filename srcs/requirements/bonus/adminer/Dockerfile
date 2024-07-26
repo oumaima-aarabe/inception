@@ -7,7 +7,7 @@ RUN apt-get update  && apt-get install -y --no-install-recommends \
 
 WORKDIR /var/www
 
-RUN wget --no-check-certificate https://www.adminer.org/latest.php -O adminer.php
+RUN wget --no-check-certificate https://www.adminer.org/latest.php -O adminer.php 
 
 RUN mv adminer.php index.php
 
