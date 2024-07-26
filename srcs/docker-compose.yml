@@ -49,8 +49,10 @@ services:
     build: requirements/bonus/redis/
     image: redis:ouaarabe
     container_name: redis
-    ports:
-      - "6379:6379"
+    depends_on:
+      - wordpress
+    expose:
+      - "6379"
     networks:
       - inception
     restart: on-failure
