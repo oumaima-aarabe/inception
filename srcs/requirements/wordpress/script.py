@@ -9,12 +9,6 @@ subprocess.run(['service', 'php7.4-fpm', 'start'])
 # Modify php-fpm configuration
 subprocess.run(['sed', '-i', 's|listen = /run/php/php7.4-fpm.sock|listen = 9000|g', '/etc/php/7.4/fpm/pool.d/www.conf'])
 
-# Check if wp-config.php exists
-# if os.path.isfile("wp-config-sample.php"):
-# subprocess.run(['mv',  '/var/www/html/wp-config-sample.php', '/var/www/html/wp-config.php'])
-# subprocess.run(['cp', '/var/www/html/wp-config.php', '/var/www/html/wp-config.php.bak'])
-
-
     # Install WordPress with administrative credentials
 subprocess.run(['wp', 'core', 'install', '--url=' + os.getenv('WP_URL'), '--title=Inception',
                 '--admin_user=' + os.getenv('WP_ADMIN_USER'), '--admin_password=' + os.getenv('WP_ADMIN_PASSWORD'),
@@ -25,6 +19,9 @@ subprocess.run(['wp', 'user', 'create', os.getenv('WP_USER'), os.getenv('WP_USER
 subprocess.run(['wp', 'plugin', 'install', 'redis-cache', '--activate', '--path=/var/www/html', '--allow-root'])
 subprocess.run(['wp', 'plugin', 'update', '--all', '--path=/var/www/html', '--allow-root'])
 subprocess.run(['wp', 'redis', 'enable',  '--path=/var/www/html', '--allow-root'])
+
+#theme
+subprocess.run(['wp', 'theme', 'install', 'blogarise', '--activate', '--path=/var/www/html', '--allow-root'])
 
 # Set ownership of WordPress directory
 subprocess.run(['chown', '-R', 'www-data:www-data', '/var/www/html'])

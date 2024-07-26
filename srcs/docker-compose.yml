@@ -56,6 +56,18 @@ services:
     networks:
       - inception
     restart: on-failure
+  adminer:
+    build: requirements/bonus/adminer/
+    image: adminer:ouaarabe
+    container_name: adminer
+    depends_on:
+      - mariadb
+    ports:
+      - "80:80"
+    networks:
+      - inception
+    restart: on-failure
+
 
 volumes:
   wordpress_vol:
