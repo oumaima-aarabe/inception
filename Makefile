@@ -6,10 +6,10 @@ up:
 down:
 	docker compose -f ./srcs/docker-compose.yml down --rmi all  --volumes
 	docker system prune -af
+	sudo rm -rf /home/ouaarab/data/*
 
 re: down
 	docker compose -f ./srcs/docker-compose.yml down -v
-	sudo rm -rf /home/ouaarab/data/*
 	$(MAKE) up
 
 #docker exec mariadb bash   
