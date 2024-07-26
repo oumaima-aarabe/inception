@@ -1,5 +1,0 @@
-docker default networks , and network types 
-
-what are volumes / volumes types.
-
-env file

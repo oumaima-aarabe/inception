@@ -10,7 +10,7 @@ services:
     depends_on:
       - wordpress
     volumes:
-      - wp_vol:/var/www/html
+      - wordpress_vol:/var/www/html
     networks:
       - inception
     env_file:
@@ -23,7 +23,7 @@ services:
     expose:
       - "9000"
     volumes:
-      - wp_vol:/var/www/html
+      - wordpress_vol:/var/www/html
     depends_on:
       - mariadb
     networks:
@@ -58,7 +58,7 @@ services:
     restart: on-failure
 
 volumes:
-  wp_vol:
+  wordpress_vol:
     name: wordpress_vol
     driver: local
     driver_opts:
