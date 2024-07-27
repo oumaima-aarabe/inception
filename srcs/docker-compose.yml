@@ -82,14 +82,14 @@ volumes:
     name: wordpress_vol
     driver: local
     driver_opts:
-      device: /home/ouaarab/data/wordpress
+      device: /tmp/wordpress
       type: none
       o: bind
   mariadb_vol:
     name: mariadb_vol
     driver: local
     driver_opts:
-      device: /home/ouaarab/data/mariadb
+      device: /tmp/mariadb
       o: bind
       type: none
 
