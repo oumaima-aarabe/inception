@@ -87,7 +87,7 @@ services:
     image: portainer:ouaarabe
     container_name: portainer
     ports:
-      - "9000:1234"
+      - "1234:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
@@ -96,19 +96,8 @@ services:
 
 volumes:
   wordpress_vol:
-    name: wordpress_vol
-    driver: local
-    driver_opts:
-      device: /tmp/wordpress
-      type: none
-      o: bind
+
   mariadb_vol:
-    name: mariadb_vol
-    driver: local
-    driver_opts:
-      device: /tmp/mariadb
-      o: bind
-      type: none
 
 networks:
   inception:
