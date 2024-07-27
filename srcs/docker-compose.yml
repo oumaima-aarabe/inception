@@ -16,6 +16,7 @@ services:
     env_file:
       - .env
     restart: on-failure
+
   wordpress:
     build: requirements/wordpress/
     image: wp:ouaarabe
@@ -31,6 +32,7 @@ services:
     env_file:
       - .env
     restart: on-failure
+
   mariadb:
     build: requirements/mariadb/
     image: mariadb:ouaarabe
@@ -45,6 +47,7 @@ services:
     networks:
       - inception
     restart : on-failure
+
   redis:
     build: requirements/bonus/redis/
     image: redis:ouaarabe
@@ -56,6 +59,7 @@ services:
     networks:
       - inception
     restart: on-failure
+
   adminer:
     build: requirements/bonus/adminer/
     image: adminer:ouaarabe
@@ -67,12 +71,25 @@ services:
     networks:
       - inception
     restart: on-failure
+
   static_web:
     build: requirements/bonus/static_web/
     image: static_web:ouaarabe
     container_name: static_web
     ports:
       - "8080:8080"
+    networks:
+      - inception
+    restart: on-failure
+
+  portainer:
+    build: requirements/bonus/portainer/
+    image: portainer:ouaarabe
+    container_name: portainer
+    ports:
+      - "9000:1234"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - inception
     restart: on-failure
