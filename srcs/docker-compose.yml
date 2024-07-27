@@ -95,9 +95,21 @@ services:
     restart: on-failure
 
 volumes:
-  wordpress_vol:
+  v_wordpress:
+    name : v_wordpress
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: bind
+      device: /Users/ouaarabe/data/wordpress
 
-  mariadb_vol:
+  v_mariadb:
+    name: v_mariadb
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: bind
+      device: /Users/ouaarabe/data/mariadb
 
 networks:
   inception:
