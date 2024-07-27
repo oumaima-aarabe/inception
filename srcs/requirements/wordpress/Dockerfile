@@ -12,10 +12,12 @@ RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 RUN wp core download --path=/var/www/html --allow-root
 
-COPY ./script.py /
-COPY ./wp-config.php /var/www/html/wp-config.php
+COPY ./conf/script.py /
+COPY ./tools/wp-config.php /var/www/html/wp-config.php
 
-ENTRYPOINT [ "python3",  "/script.py"]
+WORKDIR /
+
+ENTRYPOINT [ "python3",  "script.py"]
 
 
 #/etc/php- fpm. conf. 

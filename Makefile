@@ -5,14 +5,15 @@ upd: dir
 	docker compose -f ./srcs/docker-compose.yml up --build -d
 
 dir:
+	@mkdir -p /home/ouaarabe/data
 	@mkdir -p /home/ouaarabe/data/wordpress
 	@mkdir -p /home/ouaarabe/data/mariadb
 
 stop: 
-	docker compose -f ./srcs/docker-compose.yml --project-name inception stop
+	docker compose -f ./srcs/docker-compose.yml stop
 
 down:
-	docker compose -f ./srcs/docker-compose.yml --project-name inception stop
+	docker compose -f ./srcs/docker-compose.yml stop
 	docker compose -f ./srcs/docker-compose.yml down --rmi all  --volumes
 	sudo rm -rf /home/ouaarabe/data/*
 
@@ -31,3 +32,6 @@ network:
 
 exec:
 	docker exec -it ${c} /bin/bash
+
+logs:
+	docker compose logs ${c}

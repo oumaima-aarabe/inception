@@ -11,4 +11,4 @@ RUN wget --no-check-certificate https://www.adminer.org/latest.php -O adminer.ph
 
 RUN mv adminer.php index.php
 
-CMD ["php", "-S", "0.0.0.0:80"]
+CMD ["php", "-S", "0.0.0.0:8081"]

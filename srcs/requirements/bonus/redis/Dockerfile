@@ -7,7 +7,7 @@ RUN apt-get update && apt-get upgrade -y && \
 
 # # Expose Redis port
 
-COPY ./conf.py /
+COPY ./conf/conf.py /
 ENTRYPOINT [ "python3",  "/conf.py"]
 
 

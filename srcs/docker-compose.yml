@@ -10,21 +10,19 @@ services:
     depends_on:
       - wordpress
     volumes:
-      - wordpress_vol:/var/www/html
+      - wp_vol:/var/www/html
     networks:
       - inception
-    env_file:
-      - .env
     restart: on-failure
 
   wordpress:
     build: requirements/wordpress/
     image: wp:ouaarabe
-    container_name: wp
+    container_name: wordpress
     expose:
       - "9000"
     volumes:
-      - wordpress_vol:/var/www/html
+      - wp_vol:/var/www/html
     depends_on:
       - mariadb
     networks:
@@ -37,7 +35,6 @@ services:
     build: requirements/mariadb/
     image: mariadb:ouaarabe
     container_name: mariadb
-    #expose when the communication is within the network map when wanted access from hosting machine
     expose:
       - "3306"
     env_file:
@@ -67,7 +64,7 @@ services:
     depends_on:
       - mariadb
     ports:
-      - "80:80"
+      - "8081:8081"
     networks:
       - inception
     restart: on-failure
@@ -95,21 +92,21 @@ services:
     restart: on-failure
 
 volumes:
-  v_wordpress:
-    name : v_wordpress
+  wp_vol:
+    name : wp_vol
     driver: local
     driver_opts:
       type: 'none'
       o: bind
-      device: /Users/ouaarabe/data/wordpress
+      device: /home/ouaarabe/data/wordpress
 
-  v_mariadb:
-    name: v_mariadb
+  mariadb_vol:
+    name: mariadb_vol
     driver: local
     driver_opts:
       type: 'none'
       o: bind
-      device: /Users/ouaarabe/data/mariadb
+      device: /home/ouaarabe/data/mariadb
 
 networks:
   inception:
