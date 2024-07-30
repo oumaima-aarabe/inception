@@ -12,8 +12,8 @@ RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 RUN wp core download --path=/var/www/html --allow-root
 
-COPY ./conf/script.py /
-COPY ./tools/wp-config.php /var/www/html/wp-config.php
+COPY ./tools/script.py /
+COPY ./conf/wp-config.php /var/www/html/wp-config.php
 
 WORKDIR /
 
