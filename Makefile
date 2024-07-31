@@ -9,22 +9,18 @@ dir:
 	@mkdir -p /home/ouaarabe/data/wordpress
 	@mkdir -p /home/ouaarabe/data/mariadb
 
-stop: 
-	docker compose -f ./srcs/docker-compose.yml stop
 
-down:
-	docker compose -f ./srcs/docker-compose.yml stop
+down: stop
 	docker compose -f ./srcs/docker-compose.yml down --rmi all  --volumes
 	sudo rm -rf /home/ouaarabe/data/*
 
+stop: 
+	docker compose -f ./srcs/docker-compose.yml stop
 
 prune: down
 	docker system prune -af
 
-re: down
-	docker compose -f ./srcs/docker-compose.yml down -v
-	$(MAKE) up
-
+re: prune up
 
 network:
 	docker network inspect inception
@@ -35,3 +31,12 @@ exec:
 
 logs:
 	docker compose logs ${c}
+
+volumes:
+    docker volume ls
+
+volumes_rm:
+    docker volume rm ${v}
+
+volume_inspect:
+    docker volume inspect ${v}
