@@ -17,6 +17,9 @@ down: stop
 stop: 
 	docker compose -f ./srcs/docker-compose.yml stop
 
+restart: c ?= portainer
+	docker restart ${c}
+
 prune: down
 	docker system prune -af
 
@@ -26,17 +29,19 @@ network:
 	docker network inspect inception
 
 
-exec:
+exec: c ?= mariadb
 	docker exec -it ${c} /bin/bash
 
-logs:
+logs: c ?= wordpress
 	docker compose logs ${c}
 
 volumes:
     docker volume ls
 
-volumes_rm:
+volumes_rm: v ?= prune
     docker volume rm ${v}
 
 volume_inspect:
     docker volume inspect ${v}
+
+.PHONY: up upd down stop restart exec logs prune re network volumes volumes_rm volume_inspect
