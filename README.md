@@ -2,7 +2,36 @@
 
 <div align="center"><img align="center" width="500" height="250" src="imgs/md.png"></div>
 
-###
+
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Key Components and Their Roles](#key-components-and-their-roles)
+3. [First Basics 😄](#first-basics-)
+   - [What Is Virtualization](#what-is-virtualization)
+   - [What Is a Hypervisor](#what-is-a-hypervisor)
+   - [What Are VMs](#what-are-vms)
+   - [What Are Containers](#what-are-containers)
+   - [VMs vs Containers](#vms-vs-containers)
+4. [Docker](#docker)
+   - [What is Docker](#what-is-docker)
+   - [Docker vs LXC](#docker-vs-lxc)
+   - [Docker Ecosystem](#docker-ecosystem)
+   - [Docker Technologies](#docker-Technologies)
+7. [Docker Images](#docker-images)
+8. [Docker Compose](#docker-compose)
+9. [Docker Volumes](#docker-volumes)
+   - [Volumes Overview](#volumes-overview)
+   - [Types of Volumes](#types-of-volumes)
+   - [Docker Volume Drivers and Mount Options](#docker-volume-drivers-and-mount-options)
+     - [Volume Drivers](#volume-drivers)
+     - [Mount Types](#mount-types)
+     - [Mount Options](#mount-options)
+10. [The Network](#the-network)
+
+
+## Overview
+
 The **Inception** Project is a sophisticated web infrastructure, all running on the same Docker network, orchestrated using Docker and Docker Compose.NGINX manages incoming web traffic, serving static files directly and forwarding dynamic content requests toPHP-FPM, which processes PHP code fromWordPress.WordPress usesRedis for caching frequently accessed data, enhancing performance by reducing database queries toMariaDB, which handles all content data storage and management. After PHP-FPM processes the request and retrieves data fromRedis andMariaDB, the content is returned toNGINX for delivery to the user. Additionally,NGINX serves aStatic Website for direct content delivery.Adminer provides database management forMariaDB, andPortainer oversees and monitors the Docker containers running these services. Docker volumes ensure persistent storage and efficient data management, all within a unified Docker network that facilitates seamless communication and operation across the entire system.
 
 
@@ -31,20 +60,20 @@ The components of the Inception project are interconnected and managed through D
 
 
 
-## What Is Virtualization?
+### What Is Virtualization
 
 Virtualization involves creating virtual versions or representations of computing resources—such as servers, storage devices, operating systems (OS), or networks—that are abstracted from the underlying physical hardware. This abstraction allows for greater flexibility, scalability, and agility in managing and deploying resources. Essentially, it lets you run multiple virtual computers on a single physical machine, making it like having several computer-generated computers from one set of hardware and software.
 
 
-## What Is a Hypervisor?
+### What Is a Hypervisor
 A hypervisor is software that enables the creation and management of virtual computing environments. It acts as a lightweight layer, either software or firmware, that sits between the physical hardware and the virtualized environments. This layer allows multiple operating systems to run concurrently on a single physical machine by abstracting and partitioning the underlying hardware resources—such as CPUs, memory, storage, and networking—and allocating them to the virtual environments. Essentially, the hypervisor serves as the middleman, channeling resources from your physical infrastructure to various virtual instances.
 Hypervisors are crucial to virtualization technology, enabling efficient utilization and management of computing resources.
 
-## What are VM's ?
+### What Are VMs 
  Virtual machines (VMs) are simulated computing environments that run on physical hardware. They enable multiple operating systems and applications to operate independently on a single physical server. Each VM functions as a separate computer, with its own operating system, resources (such as CPU, memory, and storage), and applications. VMs allow for efficient use of hardware resources, simplify system management, and provide increased flexibility in deployment and scalability.
 
 
-## What are Containers ?
+### What are Containers 
 - `Containers` are a form of virtualization that allows you to run applications in isolated environments. They package an application and its dependencies into a single unit that can run consistently across various computing environments. This ensures that the application will work the same way regardless of where it's deployed.
 
 - Containers leverage several key Linux features to provide isolation and resource management. Here are the main features:
@@ -68,7 +97,7 @@ These features work together to provide the isolation, resource management, and 
 
 
 
-## VMs Vs Containers
+### VMs Vs Containers
 
 | **Aspect**                  | **Virtual Machines (VMs)**                                   | **Containers**                                             |
 |-----------------------------|---------------------------------------------------------------|------------------------------------------------------------|
@@ -79,8 +108,8 @@ These features work together to provide the isolation, resource management, and 
 | **Use Cases**               | Suitable for running different OS or strong isolation needs   | Ideal for microservices, CI/CD, and scalable applications  |
 
 
-
-# What is Docker ?
+# Docker
+## What is Docker 
 
 
 - `Docker`  provides a comprehensive platform and suite of tools that have transformed the way applications are developed, shipped, and run. Built on the concept of containerization, Docker encapsulates applications and their dependencies into self-sufficient containers. This approach ensures that applications run consistently across different environments, from development to production. Docker simplifies container creation, management, and orchestration, making it accessible to developers and operations teams.
@@ -158,8 +187,10 @@ Docker Compose is a tool for defining and running multi-container Docker applica
 `docker-compose logs`: Displays logs from the running services, helping with debugging and monitoring.
 
 ## Docker Volumes:
+
+### Volumes Overview
 - Volumes are Docker’s method for persisting data generated by and used by Docker containers. Volumes allow data to be shared between containers and retained across container restarts and lifecycles, providing a reliable way to manage persistent storage.
-###
+
 - You can manage volumes using Docker CLI commands. Here are some examples:
 **Create a volume**:` docker volume create my-vol`
 **List volumes**: `docker volume ls`
@@ -219,4 +250,4 @@ Docker Compose is a tool for defining and running multi-container Docker applica
 | **Overlay**        | Connects multiple Docker daemons and enables communication across nodes for Swarm services and containers. This eliminates the need for OS-level routing.                           |
 | **IPvlan**         | Provides control over both IPv4 and IPv6 addressing. The VLAN driver extends this by offering layer 2 VLAN tagging and L3 routing for integration with underlay networks.          |
 | **Macvlan**        | Allows assignment of a MAC address to a container, making it appear as a physical device on the network. Useful for legacy applications that need direct network access.         |
-| **None**           | Completely isolates a container from the host and other containers. This driver is not available for Swarm services.                                                                |
+| **None**           | Completely isolates a container from the host and other containers. This driver is not available for Swarm services.                     A                                           |
