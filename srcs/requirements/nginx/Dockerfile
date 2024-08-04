@@ -9,4 +9,3 @@ RUN openssl req -newkey rsa:4096 -sha256 -x509 -days 100 -nodes -out /etc/nginx/
 
 ENTRYPOINT ["nginx", "-g" ,"daemon off;"]
 
-#daemon off; permet de lancer nginx en mode foreground to become the main process for the C PID=1
