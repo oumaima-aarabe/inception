@@ -1,105 +1,151 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+/* styles.css */
 
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
-}
-
-html {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-size: 10px;
-}
-
+/* General styles */
 body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Nunito', sans-serif;
-  background: #fff9e2;
-  text-align: center;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
+header {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-h1 {
-  font-size: 4.5rem;
-  line-height: 1;
-  margin: 2rem 0 0 0;
-  color: #ff7660;
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+}
+
+nav {
+    background: #34495e;
+    color: #ecf0f1;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    color: #3498db;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 h2 {
-  font-size: 3rem;
-  color: #3b1010;
-  margin: 2rem;
+    color: #3498db;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.score {
-  background: #ffe5cf;
-  padding: 0 3rem;
-  line-height: 1;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  border-radius: 1rem;
-  color: #3b1010;
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: disc;
+    padding-left: 20px;
 }
 
-.game {
-  width: 600px;
-  height: 400px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
+code {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 5px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-.hole {
-  flex: 1 0 33.33%;
-  overflow: hidden;
-  position: relative;
+pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 10px;
+    overflow-x: auto;
 }
 
-.hole:after {
-  display: block;
-  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1159990/dirt.svg') bottom center no-repeat;
-  background-size: contain;
-  content: '';
-  width: 100%;
-  height: 70px;
-  position: absolute;
-  z-index: 2;
-  bottom: -30px;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
-.mole {
-  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1159990/mole.svg') bottom center no-repeat;
-  background-size: 60%;
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  height: 100%;
-  transition: all 0.4s;
+table, th, td {
+    border: 1px solid #ddd;
 }
 
-.hole.up .mole {
-  top: 0;
+th, td {
+    padding: 10px;
+    text-align: left;
 }
 
-#start {
-  font-family: 'Nunito', sans-serif;
-  display: inline-block;
-  text-decoration: none;
-  border: 0;
-  background: #3b1010;
-  color: #fff;
-  font-size: 2rem;
-  padding: 1rem 2rem;
-  cursor: pointer;
-  margin: 1rem;
+th {
+    background: #3498db;
+    color: #fff;
 }
 
-#start:hover {
-  opacity: 0.8;
+footer {
+    background: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.scroll-to-top:hover {
+    background: #2980b9;
 }
