@@ -28,6 +28,9 @@
      - [Mount Types](#mount-types)
      - [Mount Options](#mount-options)
 10. [The Network](#the-network)
+11. [Project Tips](#project-tips)
+12. [Resources](#resources)
+
 
 
 ## Overview
@@ -235,7 +238,7 @@ Docker Compose is a tool for defining and running multi-container Docker applica
 
 
 
-## The Network:
+## The Network
 - Docker's networking capabilities allow containers to communicate with each other and with external systems. Docker supports various network drivers and configurations to facilitate container connectivity.
 
 - In Docker, networking subsystem is pluggable, using drivers. Several drivers exist by default, and provide core networking functionality:
@@ -256,7 +259,7 @@ Docker Compose is a tool for defining and running multi-container Docker applica
 
 
 
-## Project Tips:
+## Project Tips
 
 
 ### Docker Installation for MacOS
@@ -306,11 +309,11 @@ To add the domain name of the WordPress website to the hosts file, follow these 
    ```bash
    sudo nano /etc/hosts
 
-2.Add a new entry for your domain:
+2.**Add a new entry for your domain:**
    ```bash
 127.0.0.1  login.42.fr
 ```
-3.Save and close file :D
+3.**Save and close file :D**
 
 ## Resources
 
