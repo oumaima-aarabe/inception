@@ -251,3 +251,85 @@ Docker Compose is a tool for defining and running multi-container Docker applica
 | **IPvlan**         | Provides control over both IPv4 and IPv6 addressing. The VLAN driver extends this by offering layer 2 VLAN tagging and L3 routing for integration with underlay networks.          |
 | **Macvlan**        | Allows assignment of a MAC address to a container, making it appear as a physical device on the network. Useful for legacy applications that need direct network access.         |
 | **None**           | Completely isolates a container from the host and other containers. This driver is not available for Swarm services.                     A                                           |
+
+
+
+
+
+## Project Tips:
+
+
+### Docker Installation for MacOS
+
+Docker Desktop for Mac allows you to easily run Docker and Kubernetes on your macOS system. It functions within a lightweight Linux VM, which means that while Docker commands will work as expected, only Linux-based Docker containers are supported. To install, search for "install Docker Desktop," download the installer, and follow the on-screen instructions. You can choose between stable and edge channels for feature updates. After installation, launch Docker Desktop from the Launchpad and run Docker commands in the terminal as usual. Note that the Docker client runs natively on macOS, but the Docker daemon operates within the Linux VM.
+
+For 42 Student you can run the script ./init_docker.sh inside this repo https://github.com/alexandregv/42toolbox.git to use docker in goinfre!
+
+### Docker Installation for Linux
+
+To install Docker on a Linux system, follow these steps:
+
+1. **Update your existing list of packages:**
+   ```bash
+   sudo apt update
+2. **Install a few prerequisite packages which let apt use packages over HTTPS:**
+   ```bash
+   sudo apt install apt-transport-https ca-certificates curl software-properties-common
+3.Add the GPG key for the official Docker repository to your system:
+
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+4.Add the Docker repository to APT sources:
+
+```bash
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+```
+5.Update the package database with Docker packages from the newly added repo:
+```bash
+sudo apt update
+````
+6.Install Docker:
+
+```bash
+sudo apt install docker
+```
+
+### Adding Domain Name to Hosts File
+   Adding your domain name to the hosts file allows your local machine to resolve the domain to the specified IP address, which is useful for development and testing purposes. This ensures that when you enter the domain in your browser, it directs to your local server instead of the live site.
+
+
+To add the domain name of the WordPress website to the hosts file, follow these steps:
+
+1. **Open the hosts file in a text editor with sudo privileges:**
+   ```bash
+   sudo nano /etc/hosts
+
+2.Add a new entry for your domain:
+   ```bash
+127.0.0.1  login.42.fr
+```
+3.Save and close file :D
+
+## Resources
+
+- [VM vs Containers: Understanding the Differences](https://www.backblaze.com/blog/vm-vs-containers/)
+- [What Are Containers Made From? Kubernetes Story](https://faun.pub/kubernetes-story-linux-namespaces-and-cgroups-what-are-containers-made-from-d544ac9bd622)
+- [Understanding Docker Containers: Leveraging Linux Kernels, Namespaces, and Cgroups](https://dev.to/mochafreddo/understanding-docker-containers-leveraging-linux-kernels-namespaces-and-cgroups-4fkk)
+- [LXC vs Docker: What’s the Difference?](https://www.docker.com/blog/lxc-vs-docker/#:~:text=Docker%20is%20designed%20for%20developers,the%20operating%20system%20and%20hardware.)
+- [The Evolution of Docker Containers](https://www.baeldung.com/linux/docker-containers-evolution)
+- [Docker Documentation](https://docs.docker.com/)
+
+
+
+
+
+
+
+   
+
+
+
+
+
